@@ -1,0 +1,78 @@
+\documentclass[a4paper, 11pt]{report}
+
+\usepackage[french]{babel}
+\usepackage[top=27mm, bottom=27mm, left=25mm, right=20mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{sectsty}
+\usepackage{hyperref}
+%\usepackage[usenames,dvipsnames]{color}
+
+\definecolor{light-gray}{gray}{0.90}
+\definecolor{dark-gray}{gray}{0.35}
+\definecolor{NavyBlue}{rgb}{0.1,0.46,0.8}
+
+\renewcommand*\familydefault{\sfdefault}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\fontrubrique}[1]{%
+    \textsf{\Large{\textbf{#1}}}
+}
+
+\newlength{\largeurtitre}
+\newlength{\largeurligne}
+
+\newcommand{\rubrique}[1]{%
+    \setlength{\largeurtitre}{0pt}
+    \setlength{\largeurligne}{0pt}
+    \settowidth{\largeurtitre}{\fontrubrique{#1}}
+    \addtolength{\largeurligne}{\textwidth}
+    \addtolength{\largeurligne}{-\largeurtitre}
+    \addtolength{\largeurligne}{-4pt}
+    \bigskip
+    \medskip
+    \fontrubrique{#1} \raisebox{0.3em}{\vrule depth 0pt height 0.6pt width \largeurligne}
+}
+
+\newcommand{\titrecadre}[1]{%
+    \newlength{\largeurboite}
+    \setlength{\largeurboite}{0.98\textwidth}
+    %\addtolength{\largeurboite}{6cm}
+    %\hspace{-32mm}
+
+    \begin{minipage}{21cm}
+	\fcolorbox{gray}{light-gray}{%
+	\begin{minipage}{\largeurboite}
+		\begin{center}
+			\LARGE{#1}
+		\end{center}
+	\end{minipage}
+	}
+\end{minipage}
+}
+%---Liens---%
+\hypersetup{
+unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+pdftoolbar=true,        % show Acrobat’s toolbar?
+pdfmenubar=true,        % show Acrobat’s menu?
+pdffitwindow=false,     % window fit to page when opened
+pdfstartview={FitH},    % fits the width of the page to the window
+pdftitle={Rapport de stage 4BIM - Balthazar Rouberol},    % title
+pdfauthor={Balthazar Rouberol},     % authorpdfsubject={Relation entre le nombre d'espèces et d'individus dans des échantillons de population},   % subject of the document
+pdfcreator={Balthazar Rouberol},   % creator of the document
+pdfkeywords={}, % list of keywords
+pdfnewwindow=true,      % links in new window
+colorlinks=true,       % false: boxed links; true: colored links
+linkcolor=black,          % color of internal links
+citecolor=black,        % color of links to bibliography
+filecolor=white,      % color of file links
+urlcolor= dark-gray,           % color of external links
+bookmarks=true,% show bookmarks bar?
+bookmarksopen=false,
+bookmarksnumbered = false      
+}%
